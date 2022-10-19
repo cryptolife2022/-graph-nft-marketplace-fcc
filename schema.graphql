@@ -1,0 +1,37 @@
+type NftMarketplace__ActiveItem @entity {
+    id: ID!
+    buyer: Bytes! # address
+    seller: Bytes! # address 0x0000 if no one bought it
+    nftAddress: Bytes! # address
+    tokenId: BigInt!
+    price: BigInt #price is optional
+}
+
+type NftMarketplace__ItemListed @entity {
+    id: ID!
+    seller: Bytes! # address
+    nftAddress: Bytes! # address
+    tokenId: BigInt!
+    price: BigInt
+}
+
+type NftMarketplace__ItemCancelled @entity {
+    id: ID!
+    seller: Bytes! # address
+    nftAddress: Bytes! # address
+    tokenId: BigInt!
+}
+
+type NftMarketplace__ItemBought @entity {
+    id: ID!
+    buyer: Bytes! # address
+    nftAddress: Bytes! # address
+    tokenId: BigInt!
+    price: BigInt
+}
+
+type NftMarketplace__WithdrewProceeds @entity {
+    id: ID!
+    seller: Bytes! # address
+    amount: BigInt
+}
